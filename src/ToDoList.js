@@ -23,9 +23,8 @@ function mapDispatchToProps(dispatch){
 }
 
 function mapStateToProps(state) {
-    debugger;
     return {
-        store: state
+        store: state.tasks
     };
 }
 

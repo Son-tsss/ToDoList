@@ -3,11 +3,10 @@ import './App.css';
 import ToDoList from './ToDoList'
 import TaskAddingBar from './TaskAddingBar'
 import DeleteAllDoneButton from './DeleteAllDoneButton'
-import * as context from './ToDoListStore'
+import { ToDoListStore } from './ToDoListStore'
 
 class App extends Component {
   render() {
-    const { ToDoListStore } = context;
     return (
         <ToDoListStore>
             <div className="App">
@@ -20,10 +19,6 @@ class App extends Component {
         </ToDoListStore>
     );
   }
-
-    getNumberOfTask = (id) =>{
-        return id.substring(id.indexOf('_') + 1);
-    }
 }
 
 export default App;

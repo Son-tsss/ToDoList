@@ -9,7 +9,7 @@ let store;
 class ToDoListStore extends Component {
     constructor(props){
         super(props);
-        store = createStore(data.tasks, reducer);
+        store = createStore({tasks: [...data.tasks], inputText: ""}, reducer);
         this.store = store;
     }
 

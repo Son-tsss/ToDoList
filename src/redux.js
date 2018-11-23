@@ -15,7 +15,6 @@
 
         function subscribe (subscriber) {
             subscribers.push(subscriber);
-
             return () => unsubscribe(subscriber);
         }
 

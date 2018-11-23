@@ -2,34 +2,29 @@ import React, { Component } from 'react';
 import {connect} from './ToDoListStore'
 
 class TaskAddingBar extends Component {
-    constructor(props){
-        super(props);
-        this.state = { inputText: "" };
-    }
-
     render() {
-        const { handleClick } = this.props;
+        const { handleClick, inputText, handleChanged } = this.props;
+
         return (
             <div>
-                <input type="text" onChange={this.handleChanged} value={this.state.inputText}/>
-                <button onClick={() => handleClick(this.state.inputText)}>Add</button>
+                <input id="ttt" type="text" onChange={(e) => handleChanged(e.target.value)} value={inputText}/>
+                <button onClick={() => handleClick(inputText)}>Add</button>
             </div>
         );
     }
-
-    handleChanged = (e) => {
-        this.setState({inputText: e.target.value});
-    };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskAddingBar);
 
 function mapDispatchToProps(dispatch){
     return {
-        handleClick: (task) => dispatch({type: 'ADD', task: task})
+        handleClick: (task) => dispatch({type: 'ADD', task: task}),
+        handleChanged: (inputText) => dispatch({type: 'CHANGED_INPUT_TEXT', inputText: inputText})
     }
 };
 
 function mapStateToProps(state) {
-    return { };
+    return {
+        inputText: state.inputText
+    };
 }
