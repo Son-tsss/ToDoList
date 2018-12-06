@@ -11,7 +11,7 @@ class ToDoListItem extends Component {
 
         if(done) {
             element = <div >
-                <input id={checkboxId} type="checkbox" onChange={() => handleChecked(number)} checked/>
+                <input id={checkboxId} type="checkbox" onChange={() => handleChecked(number)} checked/>  //there is no need to duplicate code you can just padd checked={done} :)
                 <label htmlFor={checkboxId}>{task}</label>
                 <DeleteButton number={number}/>
             </div>
