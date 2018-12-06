@@ -23,7 +23,7 @@ class ToDoListStore extends Component {
 }
 
 function connect(mapStateToProps, mapDispatchToProps) {
-    return function(Component){
+    return function(Component){ // you need to decouple ToDo list task from connect function. so connect could work for any stateand any component passed to it
         return class ToDoListItem extends Component {
             render() {
                 return (
